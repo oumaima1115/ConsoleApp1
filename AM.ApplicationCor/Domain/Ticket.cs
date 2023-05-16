@@ -11,7 +11,7 @@ namespace AM.ApplicationCor.Domain
         public double Prix { get; set; }
         public int Siege { get; set; }
         public bool VIP { get; set; }
-        public virtual string FlightFK { get; set; }
+        public virtual int FlightFK { get; set; }
         public virtual Flight Flight { get; set; }
         public virtual string PassengerFK { get; set; }
         public virtual Passenger Passenger { get; set; }

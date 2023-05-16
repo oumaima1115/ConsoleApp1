@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using AM.ApplicationCor.Domain;
 using AM.Infrastructure.Configurations;
 
-namespace AM.Infrastructure_
+namespace AM.Infrastructure
 {
     public class AMContext : DbContext
     {
@@ -19,10 +19,15 @@ namespace AM.Infrastructure_
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
-
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=AirportManagementDB;Integrated Security=true");
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseLazyLoadingProxies(); // Activer le chargement différé
+                optionsBuilder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;
+                  Initial Catalog=AirportDB;Integrated Security=true");
+                base.OnConfiguring(optionsBuilder);
+            }
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new PlaneConfiguration());
@@ -33,6 +38,19 @@ namespace AM.Infrastructure_
             modelBuilder.Entity<Staff>().ToTable("Staff");
             modelBuilder.Entity<Traveller>().ToTable("Travellers");
 
+        }
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+        //    // Pre-convention model configuration goes here
+        //    configurationBuilder
+        //        .Properties<string>()
+        //        .HaveMaxLength(50);
+        //configurationBuilder
+        //    .Properties<decimal>()
+        //        .HavePrecision(8,3);
+            configurationBuilder
+              .Properties<DateTime>()
+                  .HaveColumnType("date");
         }
         
     }

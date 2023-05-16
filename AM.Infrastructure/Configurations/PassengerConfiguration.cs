@@ -8,13 +8,18 @@ namespace AM.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Passenger> builder)
         {
-            builder.HasKey(p => p.PassportNumber);
 
-            builder.OwnsOne(p => p.FullName, fn =>
+            builder.OwnsOne(p => p.FullName, full =>
             {
-                fn.Property(n => n.FirstName).HasColumnName("PassFirstName").HasMaxLength(30);
-                fn.Property(n => n.LastName).HasColumnName("PassLastName").IsRequired();
+                full.Property(f => f.FirstName).HasColumnName("PassFirstName").HasMaxLength(30);
+                full.Property(f => f.LastName).HasColumnName("PassLastName").IsRequired();
             });
+
+            //builder.HasDiscriminator<string>("IsTraveller")
+            //         .HasValue<Passenger>("0")
+            //         .HasValue<Traveller>("1")
+            //         .HasValue<Staff>("2");
+
 
             builder.Property(p => p.BirthDate).HasColumnType("date");
             builder.Property(p => p.TelNumber).HasColumnType("varchar(8)").IsRequired();

@@ -10,11 +10,11 @@ namespace AM.Infrastructure.Configurations
         {
 
             //Many to Many
-            builder.HasMany(f => f.Passengers)
-            .WithMany(p => p.Flights)
-            .UsingEntity(
-                j => j.ToTable("Reservation")
-                );//Table d'association
+            //builder.HasMany(f => f.Passengers)
+            //.WithMany(p => p.Flights)
+            //.UsingEntity(
+            //    j => j.ToTable("Reservation")
+            //   );//Table d'association
 
             //One To Many
             builder.HasOne(f => f.Plane)

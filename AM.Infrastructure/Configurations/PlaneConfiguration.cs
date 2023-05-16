@@ -8,9 +8,7 @@ namespace AM.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Plane> builder)
         {
-            builder.ToTable("MyPlanes"); // set the table name to "MyPlanes"
             builder.HasKey(p => p.PlaneId); // set PlaneId as the primary key
-
             builder.Property(p => p.Capacity).HasColumnName("PlaneCapacity"); // set the column name to "PlaneCapacity"
         }
     }
