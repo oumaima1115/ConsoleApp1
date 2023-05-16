@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using AM.ApplicationCor.Domain;
+using AM.ApplicationCore.Domain;
 using AM.Infrastructure.Configurations;
 
 namespace AM.Infrastructure

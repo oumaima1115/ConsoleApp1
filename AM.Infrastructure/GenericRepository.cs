@@ -1,4 +1,4 @@
-﻿using AM.ApplicationCor.Interfaces;
+﻿using AM.ApplicationCore.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Linq.Expressions;

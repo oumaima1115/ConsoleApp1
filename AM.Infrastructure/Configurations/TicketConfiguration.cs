@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AM.ApplicationCor.Domain;
+using AM.ApplicationCore.Domain;
 using System.Reflection.Emit;
 
 namespace AM.Infrastructure.Configurations

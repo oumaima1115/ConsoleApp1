@@ -1,8 +1,9 @@
 ﻿using System;
-using AM.ApplicationCor.Domain;
-using AM.ApplicationCor.Services;
-using AM.ApplicationCor.Interfaces;
+using AM.ApplicationCore.Domain;
+using AM.ApplicationCore.Services;
+using AM.ApplicationCore.Interfaces;
 using AM.Infrastructure;
+using AM.ApplicationCore.Domain;
 
 namespace ConsoleApp1
 {
@@ -17,10 +18,11 @@ namespace ConsoleApp1
             plane.ManufactureDate = new DateTime(2018, 11, 10);
 
             Plane plane2 = new Plane(PlaneType.Boing, 300, DateTime.Now);
-            Plane plane3 = new Plane{
-                PlaneType= PlaneType.Airbus,
-                Capacity=150,
-                ManufactureDate = new DateTime(2015,02,03)
+            Plane plane3 = new Plane
+            {
+                PlaneType = PlaneType.Airbus,
+                Capacity = 150,
+                ManufactureDate = new DateTime(2015, 02, 03)
             };
             Console.WriteLine("Plane2: {0}", plane2.ToString());
             Console.WriteLine("Plane3: {0}", plane3.ToString());
@@ -89,9 +91,9 @@ namespace ConsoleApp1
                 Departure = "Tunis",
                 FlightDate = new DateTime(2022, 02, 01, 21, 10, 10),
                 Destination = "Paris",
+                AirlineLogo = "new",
                 EffectiveArrival = new DateTime(2022, 02, 01, 23, 10, 10),
                 EstimatedDuration = 103,
-                AirlineLogo = "airTwo",
                 Plane = plane1
             };
 
