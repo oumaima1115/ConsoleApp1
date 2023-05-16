@@ -12,7 +12,8 @@ namespace AM.ApplicationCor.Services
     public class ServiceFlight : Service<Flight>, IServiceFlight
     {
         
-        public List<Flight> Flights => GetAll().ToList();  
+        public List<Flight> Flights => GetAll().ToList(); 
+        
         //Delegates
         public Action<Plane> FlightDetailsDel;
         public Func<string, double> DurationAverageDel;
@@ -27,6 +28,7 @@ namespace AM.ApplicationCor.Services
                         where f.Destination.Equals(dest)
                         select f.EstimatedDuration).Average();
             };
+
             // FlightDetailsDel = ShowFlightDetails;
             FlightDetailsDel = p =>
            {
